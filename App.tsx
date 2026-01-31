@@ -97,9 +97,13 @@ function RootStack() {
         component={ProductDetailsScreen}
         options={{
           // headerShown: false,
-          presentation: "modal",
+          // presentation: "modal",
           title: "Product details",
           headerTintColor: Colors.white,
+          headerShadowVisible: false,
+          contentStyle: {
+            backgroundColor: Colors.primary,
+          },
           headerStyle: {
             backgroundColor: Colors.primary,
           },
