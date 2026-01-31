@@ -66,6 +66,16 @@ export default function ProductDetailsScreen() {
         <Text style={styles.productName}>{productData?.name}</Text>
         <View style={styles.quantityContainer}>
           <CartToggle quantity={1} />
+          <Text
+            style={[
+              styles.productName,
+              {
+                marginBottom: 0,
+              },
+            ]}
+          >
+            N{productData?.price.toLocaleString()}
+          </Text>
         </View>
         <Text style={[GlobalStyles.onboardingContentSubeading]}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
@@ -130,6 +140,9 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
     borderBottomColor: Colors.input,
     borderBottomWidth: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   bottomContainer: {
     width: "100%",
