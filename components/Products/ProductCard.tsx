@@ -50,16 +50,7 @@ export default function ProductCard({
           <Text style={styles.productPrice}>
             N{product.price.toLocaleString()}
           </Text>
-          <IconButton
-            name={"add"}
-            size={20}
-            color={Colors.primary}
-            buttonContainerStyles={{
-              width: 32,
-              height: 32,
-              backgroundColor: Colors.primaryMuted,
-            }}
-          />
+          <IconButton name={"add"} size={20} color={Colors.primary} contained />
         </View>
       </View>
     </View>

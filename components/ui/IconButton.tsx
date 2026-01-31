@@ -1,11 +1,14 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { OpaqueColorValue, Pressable, StyleSheet, View } from "react-native";
+import { Colors } from "../../constants/colors";
 
 interface IconButtonProps {
   size?: number;
   name: any;
   color?: string | OpaqueColorValue;
+  contained?: boolean;
+  disabled?: boolean;
   buttonContainerStyles?: Record<string, string | number>;
   onPress?: () => void;
 }
@@ -15,6 +18,8 @@ export default function IconButton({
   name,
   color,
   buttonContainerStyles,
+  contained,
+  disabled,
   onPress,
 }: IconButtonProps) {
   if (!name || typeof name !== "string") return null;
@@ -23,8 +28,15 @@ export default function IconButton({
     <Pressable
       onPress={onPress}
       style={({ pressed }) => pressed && styles.pressed}
+      disabled={disabled}
     >
-      <View style={[styles.buttonContainer, buttonContainerStyles]}>
+      <View
+        style={[
+          styles.buttonContainer,
+          contained && styles.contained,
+          buttonContainerStyles,
+        ]}
+      >
         <Ionicons name={name as any} size={size} color={color} />
       </View>
     </Pressable>
@@ -42,5 +54,10 @@ const styles = StyleSheet.create({
   },
   pressed: {
     opacity: 0.75,
+  },
+  contained: {
+    width: 32,
+    height: 32,
+    backgroundColor: Colors.primaryMuted,
   },
 });
