@@ -3,7 +3,7 @@
     "name": "tiana-bakeshop",
     "slug": "tiana-bakeshop",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
@@ -25,6 +25,28 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            {
+              "fontFamily": "OpenSans",
+              "fontDefinitions": [
+                {
+                  "path": "./assets/fonts/OpenSans-Bold.ttf",
+                  "weight": 600
+                },
+                {
+                  "path": "./assets/fonts/OpenSans-Regular.ttf",
+                  "weight": 400
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    ]
   }
 }
