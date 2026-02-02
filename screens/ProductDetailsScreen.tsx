@@ -78,9 +78,7 @@ export default function ProductDetailsScreen() {
           </Text>
         </View>
         <Text style={[GlobalStyles.onboardingContentSubeading]}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-          eveniet velit quam laboriosam corrupti itaque at aspernatur a sequi
-          facere?
+          {productData?.description}
         </Text>
       </ScrollView>
       <View style={styles.bottomContainer}>
@@ -116,7 +114,7 @@ const styles = StyleSheet.create({
   image: {
     height: 260,
     width: 260,
-    borderRadius: "100%",
+    borderRadius: 130,
     objectFit: "cover",
     marginBottom: 10,
   },

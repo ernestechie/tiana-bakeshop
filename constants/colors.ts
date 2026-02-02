@@ -2,6 +2,7 @@ export const Colors = {
   primary: "#FFA451",
   primaryMuted: "#FFF2E7",
   primary2: "#F67738",
+  accent: "#FF3B30",
   white: "#fff",
   black: "#010101",
   lightGrey: "#ddd",

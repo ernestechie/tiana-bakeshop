@@ -76,6 +76,8 @@ const styles = StyleSheet.create({
     height: 220,
     marginRight: 14,
     position: "relative",
+    borderColor: Colors.input,
+    borderWidth: 1,
   },
   imageContainer: {
     marginBottom: 20,

@@ -1,23 +1,27 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { Colors } from "../../constants/colors";
-import { products } from "../../constants/products";
 
+import { ProductItem } from "../../types/products";
+import EmptyState from "../EmptyState";
 import ProductCard from "./ProductCard";
 
 interface ProductsListProps {
-  title: string;
+  title?: string;
+  products: ProductItem[];
 }
 
-export default function ProductsList({ title }: ProductsListProps) {
+export default function ProductsList({ title, products }: ProductsListProps) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+      {title && <Text style={styles.title}>{title}</Text>}
       <FlatList
         data={products}
-        horizontal
+        horizontal={products && products.length > 0}
         style={styles.productList}
         keyExtractor={(product) => product.id}
+        ListEmptyComponent={<EmptyState resource="products" />}
+        alwaysBounceHorizontal={false}
         renderItem={({ item: product }) => {
           return (
             <ProductCard
@@ -42,6 +46,9 @@ const styles = StyleSheet.create({
   },
   container: {
     height: 280,
+    marginBottom: 32,
   },
-  productList: {},
+  productList: {
+    flex: 1,
+  },
 });
