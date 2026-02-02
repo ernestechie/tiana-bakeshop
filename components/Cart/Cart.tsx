@@ -47,6 +47,11 @@ export default function Cart() {
   //
   const handleProceedToCheckout = () => {
     // Navigate to checkout screen
+
+    // Enter address information
+
+    // Select payment method screen
+
     navigation.navigate(Screens.OrderSuccess);
   };
 
