@@ -4,6 +4,7 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { Colors } from "../../constants/colors";
 import { Screens } from "../../constants/screens";
 import { ProductItem } from "../../types/products";
+import { formatToNaira } from "../../utils/helpers";
 import IconButton from "../ui/IconButton";
 
 interface ProductCardProps {
@@ -48,7 +49,7 @@ export default function ProductCard({
       <View style={styles.productDetails}>
         <View style={styles.productPriceContainer}>
           <Text style={styles.productPrice}>
-            N{product.price.toLocaleString()}
+            {formatToNaira(product.price)}
           </Text>
           <IconButton name={"add"} size={20} color={Colors.primary} contained />
         </View>

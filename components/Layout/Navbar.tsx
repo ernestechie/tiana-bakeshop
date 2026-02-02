@@ -19,7 +19,7 @@ export default function Navbar() {
       </Text>
       <View style={styles.shoppingCartIconContainer}>
         <View>
-          <Text style={styles.shoppingCartQuantity}>{2}</Text>
+          <Text style={styles.shoppingCartQuantity}>{4}</Text>
         </View>
         <IconButton
           name="cart"

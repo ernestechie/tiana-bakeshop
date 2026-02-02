@@ -42,8 +42,11 @@ function ExploreLayout() {
         name={Screens.Basket}
         component={ShoppingBasketPage}
         options={{
-          headerShown: false,
           headerTitle: "Shopping basket",
+          headerTintColor: Colors.white,
+          headerStyle: {
+            backgroundColor: Colors.primary,
+          },
           tabBarIcon: ({ size, color }) => (
             <Ionicons name="cart-sharp" size={size - 4} color={color} />
           ),

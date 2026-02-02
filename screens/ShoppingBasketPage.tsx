@@ -1,20 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Cart from "../components/Cart/Cart";
 import { Colors } from "../constants/colors";
 
 export default function ShoppingBasketPage() {
   return (
-    <SafeAreaView style={styles.screen}>
-      <Text>Shopping Basket Page</Text>
-    </SafeAreaView>
+    <View style={styles.screen}>
+      <Cart />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    padding: 16,
+    padding: 20,
     backgroundColor: Colors.white,
   },
 });
