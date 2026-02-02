@@ -12,6 +12,7 @@ import SignUpPage from "./screens/SignUpPage";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { hideAsync, preventAutoHideAsync } from "expo-splash-screen";
+import OrdersPage from "./screens/OrdersPage";
 import ProductDetailsScreen from "./screens/ProductDetailsScreen";
 import ProfilePage from "./screens/ProfilePage";
 import ShoppingBasketPage from "./screens/ShoppingBasketPage";
@@ -39,16 +40,11 @@ function ExploreLayout() {
         }}
       />
       <Tab.Screen
-        name={Screens.Basket}
-        component={ShoppingBasketPage}
+        name={Screens.Orders}
+        component={OrdersPage}
         options={{
-          headerTitle: "Shopping basket",
-          headerTintColor: Colors.white,
-          headerStyle: {
-            backgroundColor: Colors.primary,
-          },
           tabBarIcon: ({ size, color }) => (
-            <Ionicons name="cart-sharp" size={size - 4} color={color} />
+            <Ionicons name="bag" size={size - 4} color={color} />
           ),
         }}
       />
@@ -93,6 +89,17 @@ function RootStack() {
         component={ExploreLayout}
         options={{
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={Screens.Basket}
+        component={ShoppingBasketPage}
+        options={{
+          headerTitle: "Shopping basket",
+          headerTintColor: Colors.white,
+          headerStyle: {
+            backgroundColor: Colors.primary,
+          },
         }}
       />
       <Stack.Screen

@@ -8,5 +8,6 @@ export enum Screens {
   CardDetails = "CardDetails",
   Congratulations = "Congratulations",
   Profile = "Profile",
+  Orders = "Orders",
   ProductDetails = "ProductDetails",
 }

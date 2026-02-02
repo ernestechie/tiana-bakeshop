@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    padding: 10,
   },
   itemPrice: {
     fontFamily: "open-sans-bold",
