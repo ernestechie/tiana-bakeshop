@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useMemo } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { Colors } from "../../constants/colors";
 import { products, recommendedProducts } from "../../constants/products";
+import { Screens } from "../../constants/screens";
 import { formatToNaira } from "../../utils/helpers";
 import EmptyState from "../EmptyState";
 import AppButton from "../ui/Button";
@@ -9,6 +11,8 @@ import IconButton from "../ui/IconButton";
 import CartItem, { CartItemType } from "./CartItem";
 
 export default function Cart() {
+  const navigation = useNavigation<UseNavigationProps>();
+
   const cartItems: CartItemType[] = useMemo(() => {
     return [
       {
@@ -40,6 +44,12 @@ export default function Cart() {
     }, 0);
   }, [cartItems]);
 
+  //
+  const handleProceedToCheckout = () => {
+    // Navigate to checkout screen
+    navigation.navigate(Screens.OrderSuccess);
+  };
+
   return (
     <View
       style={{
@@ -67,7 +77,7 @@ export default function Cart() {
             </Text>
           </Text>
         </View>
-        <AppButton>Checkout</AppButton>
+        <AppButton onPress={handleProceedToCheckout}>Checkout</AppButton>
       </View>
     </View>
   );

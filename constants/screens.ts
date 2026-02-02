@@ -10,4 +10,5 @@ export enum Screens {
   Profile = "Profile",
   Orders = "Orders",
   ProductDetails = "ProductDetails",
+  OrderSuccess = "OrderSuccess",
 }

@@ -13,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { hideAsync, preventAutoHideAsync } from "expo-splash-screen";
 import OrdersPage from "./screens/OrdersPage";
+import OrderSuccessPage from "./screens/OrderSuccessPage";
 import ProductDetailsScreen from "./screens/ProductDetailsScreen";
 import ProfilePage from "./screens/ProfilePage";
 import ShoppingBasketPage from "./screens/ShoppingBasketPage";
@@ -117,6 +118,13 @@ function RootStack() {
           headerStyle: {
             backgroundColor: Colors.primary,
           },
+        }}
+      />
+      <Stack.Screen
+        name={Screens.OrderSuccess}
+        component={OrderSuccessPage}
+        options={{
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

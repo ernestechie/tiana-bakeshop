@@ -6,7 +6,7 @@ import { Colors } from "../constants/colors";
 
 interface EmptyStateProps {
   message?: string;
-  resource?: string;
+  resource?: string; // e.g., "products", "orders"
 }
 
 export default function EmptyState({ message, resource }: EmptyStateProps) {

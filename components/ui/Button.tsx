@@ -5,6 +5,7 @@ import { Colors } from "../../constants/colors";
 interface AppButtonProps extends PropsWithChildren {
   mode?: "flat";
   disabled?: boolean;
+  outlined?: boolean;
   fullWidth?: boolean;
   style?: Record<string, string | number>;
   onPress?: () => void;
@@ -16,6 +17,7 @@ export default function AppButton({
   children,
   style,
   disabled,
+  outlined,
   fullWidth,
 }: AppButtonProps) {
   return (
@@ -28,10 +30,20 @@ export default function AppButton({
       disabled={disabled}
     >
       <View
-        style={[styles.button, mode === "flat" ? styles.flatButton : {}, style]}
+        style={[
+          styles.button,
+          mode === "flat" ? styles.flatButton : {},
+          outlined && styles.buttonOutlined,
+          ,
+          style,
+        ]}
       >
         <Text
-          style={[styles.buttonText, mode === "flat" ? styles.flatText : {}]}
+          style={[
+            styles.buttonText,
+            mode === "flat" ? styles.flatText : {},
+            outlined && styles.buttonOutlinedText,
+          ]}
         >
           {children}
         </Text>
@@ -46,6 +58,14 @@ const styles = StyleSheet.create({
     padding: 16,
     paddingHorizontal: 24,
     backgroundColor: Colors.primary,
+  },
+  buttonOutlined: {
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: Colors.primary,
+  },
+  buttonOutlinedText: {
+    color: Colors.primary,
   },
   fullWidth: {
     width: "100%",

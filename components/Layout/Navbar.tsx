@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { Colors } from "../../constants/colors";
 import { Screens } from "../../constants/screens";
 import IconButton from "../ui/IconButton";
@@ -17,7 +17,10 @@ export default function Navbar() {
       <Text style={styles.greetingText}>
         Hello, <Text style={styles.username}>Tiana</Text>
       </Text>
-      <View style={styles.shoppingCartIconContainer}>
+      <Pressable
+        style={styles.shoppingCartIconContainer}
+        onPress={handleNavigate}
+      >
         <View>
           <Text style={styles.shoppingCartQuantity}>{4}</Text>
         </View>
@@ -27,7 +30,7 @@ export default function Navbar() {
           size={30}
           onPress={handleNavigate}
         />
-      </View>
+      </Pressable>
     </View>
   );
 }
