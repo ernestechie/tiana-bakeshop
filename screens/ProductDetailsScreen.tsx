@@ -16,6 +16,7 @@ import { products } from "../constants/products";
 import { GlobalStyles } from "../styles/global.styles";
 import { RootStackParamList } from "../types/navigation";
 import { ProductItem } from "../types/products";
+import { formatToNaira } from "../utils/helpers";
 
 export default function ProductDetailsScreen() {
   const { setOptions } = useNavigation<UseNavigationProps>();
@@ -74,7 +75,7 @@ export default function ProductDetailsScreen() {
               },
             ]}
           >
-            N{productData?.price.toLocaleString()}
+            {formatToNaira(productData?.price || 0)}
           </Text>
         </View>
         <Text style={[GlobalStyles.onboardingContentSubeading]}>
