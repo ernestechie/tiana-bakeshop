@@ -1,11 +1,18 @@
 import React, { PropsWithChildren } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { Colors } from "../../constants/colors";
 
 interface AppButtonProps extends PropsWithChildren {
   mode?: "flat";
   disabled?: boolean;
   outlined?: boolean;
+  loading?: boolean;
   fullWidth?: boolean;
   style?: Record<string, string | number>;
   onPress?: () => void;
@@ -18,6 +25,7 @@ export default function AppButton({
   style,
   disabled,
   outlined,
+  loading,
   fullWidth,
 }: AppButtonProps) {
   return (
@@ -38,15 +46,19 @@ export default function AppButton({
           style,
         ]}
       >
-        <Text
-          style={[
-            styles.buttonText,
-            mode === "flat" ? styles.flatText : {},
-            outlined && styles.buttonOutlinedText,
-          ]}
-        >
-          {children}
-        </Text>
+        {loading ? (
+          <ActivityIndicator />
+        ) : (
+          <Text
+            style={[
+              styles.buttonText,
+              mode === "flat" ? styles.flatText : {},
+              outlined && styles.buttonOutlinedText,
+            ]}
+          >
+            {children}
+          </Text>
+        )}
       </View>
     </Pressable>
   );

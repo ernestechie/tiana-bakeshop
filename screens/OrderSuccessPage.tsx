@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 16,
     textAlign: "center",
-    fontFamily: "open-sans",
+    fontFamily: "open-sans-regular",
     color: Colors.secondary,
   },
 });
