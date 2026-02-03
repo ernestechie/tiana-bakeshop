@@ -41,7 +41,7 @@ export const products: ProductItem[] = [
 
 export const recommendedProducts: ProductItem[] = [
   {
-    id: "1",
+    id: "5",
     name: "Exotic Oat Meal",
     price: 26000,
     imageUrl:
@@ -50,7 +50,7 @@ export const recommendedProducts: ProductItem[] = [
       "A hearty oatmeal bowl with exotic fruits and spices, offering a nutritious and flavorful start to your day.",
   },
   {
-    id: "2",
+    id: "6",
     name: "Shawarma Plate",
     price: 16000,
     imageUrl:
@@ -59,7 +59,7 @@ export const recommendedProducts: ProductItem[] = [
       "Savory shawarma served with fresh veggies, sauces, and sides for a satisfying Middle Eastern-inspired meal.",
   },
   {
-    id: "4",
+    id: "7",
     name: "Chicken Pie",
     price: 28500,
     imageUrl:
@@ -68,7 +68,7 @@ export const recommendedProducts: ProductItem[] = [
       "Flaky pastry filled with tender chicken and vegetables in a creamy sauce, a comforting classic.",
   },
   {
-    id: "3",
+    id: "8",
     name: "Pizza Dish",
     price: 22000,
     imageUrl:

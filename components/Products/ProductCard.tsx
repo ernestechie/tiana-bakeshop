@@ -10,15 +10,17 @@ import IconButton from "../ui/IconButton";
 interface ProductCardProps {
   product: ProductItem;
   containerStyles?: object;
+  isFavourite?: boolean;
+  onToggleFavourites?: (product: ProductItem) => void;
 }
 
 export default function ProductCard({
   product,
+  isFavourite,
   containerStyles,
+  onToggleFavourites,
 }: ProductCardProps) {
   const { navigate } = useNavigation<UseNavigationProps>();
-
-  const isFavourited = +product.id % 2 === 0;
 
   const navigateToProductDetails = () => {
     navigate(Screens.ProductDetails, { productId: product.id });
@@ -29,8 +31,9 @@ export default function ProductCard({
       {/* Favourite Icon */}
       <View style={styles.favouriteButton}>
         <IconButton
-          name={isFavourited ? "heart" : "heart-outline"}
-          color={isFavourited ? Colors.primary : Colors.secondary}
+          name={isFavourite ? "heart" : "heart-outline"}
+          color={isFavourite ? Colors.primary : Colors.secondary}
+          onPress={() => onToggleFavourites?.(product)}
         />
       </View>
 

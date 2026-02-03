@@ -42,6 +42,11 @@ export default function ProductDetailsScreen() {
     }, 3000);
   }, [setOptions, params?.productId]);
 
+  // Handle adding a product to cart.
+  const onAddProductToBasket = () => {
+    console.log("Add product to basket");
+  };
+
   if (isFetchingData) {
     return (
       <ActivityIndicator
@@ -95,7 +100,7 @@ export default function ProductDetailsScreen() {
           // name={isFavourited ? "heart" : "heart-outline"}
           // color={isFavourited ? Colors.primary : Colors.secondary}
         />
-        <AppButton>Add to basket</AppButton>
+        <AppButton onPress={onAddProductToBasket}>Add to basket</AppButton>
       </View>
     </View>
   );

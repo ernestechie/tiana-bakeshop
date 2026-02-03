@@ -12,6 +12,7 @@ import SignUpPage from "./screens/SignUpPage";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { hideAsync, preventAutoHideAsync } from "expo-splash-screen";
+import FavouritesPage from "./screens/FavouritesPage";
 import OrdersPage from "./screens/OrdersPage";
 import OrderSuccessPage from "./screens/OrderSuccessPage";
 import ProductDetailsScreen from "./screens/ProductDetailsScreen";
@@ -35,6 +36,7 @@ function ExploreLayout() {
         options={{
           headerShown: false,
           headerTitle: "Explore options",
+          title: "Home",
           tabBarIcon: ({ size, color }) => (
             <Ionicons name="home" size={size - 4} color={color} />
           ),
@@ -46,6 +48,16 @@ function ExploreLayout() {
         options={{
           tabBarIcon: ({ size, color }) => (
             <Ionicons name="bag" size={size - 4} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={Screens.Favourites}
+        component={FavouritesPage}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ size, color }) => (
+            <Ionicons name="heart" size={size - 4} color={color} />
           ),
         }}
       />

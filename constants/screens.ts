@@ -9,6 +9,7 @@ export enum Screens {
   Congratulations = "Congratulations",
   Profile = "Profile",
   Orders = "Orders",
+  Favourites = "Favourites",
   ProductDetails = "ProductDetails",
   OrderSuccess = "OrderSuccess",
 }
