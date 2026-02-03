@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   KeyboardAvoidingView,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -25,30 +26,32 @@ export default function SignUpPage() {
   return (
     <View style={GlobalStyles.screen}>
       <OnboardingBanner />
-      <View
-        style={[
-          GlobalStyles.onboardingContentBackground,
-          styles.contentBackground,
-        ]}
+      <KeyboardAvoidingView
+        style={[GlobalStyles.onboardingContentBackground]}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        keyboardVerticalOffset={10}
       >
-        {/* <KeyboardAvoidingView style={styles.formWrapper} behavior="position">
+        <ScrollView
+          style={{
+            flex: 1,
+          }}
+        >
           <Text style={[GlobalStyles.onboardingContentHeading]}>
             Enter your details
           </Text>
           <View style={styles.formContainer}>
-            <Input label="First name" fullWidth />
-            <Input label="Last name" fullWidth />
-            <Input label="Phone number" fullWidth keyboardType="number-pad" />
-          </View>
-          <AppButton onPress={handleGetStarted}>Start ordering</AppButton>
-        </KeyboardAvoidingView> */}
-        <View style={styles.formWrapper}>
-          <Text style={[GlobalStyles.onboardingContentHeading]}>
-            Enter your details
-          </Text>
-          <View style={styles.formContainer}>
-            {/* <Input label="First name" fullWidth /> */}
-            {/* <Input label="Last name" fullWidth /> */}
+            <Input
+              label="First name"
+              fullWidth
+              placeholder="Enter first name"
+            />
+            <Input label="Last name" fullWidth placeholder="Enter last name" />
+            <Input
+              label="Phone number"
+              fullWidth
+              keyboardType="email-address"
+              placeholder="Enter email"
+            />
             <Input
               label="Phone number"
               fullWidth
@@ -59,8 +62,8 @@ export default function SignUpPage() {
           <AppButton onPress={handleGetStarted} fullWidth>
             Start ordering
           </AppButton>
-        </View>
-      </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </View>
   );
 }
@@ -70,17 +73,10 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     // height: '50%',
   },
-  contentBackground: {
-    // paddingTop: 50,
-  },
   formWrapper: {
     flex: 1,
   },
   formContainer: {
-    // flex: 1,
-    // alignItems: "center",
-    // justifyContent: "space-around",
-    // height: "100%",
     marginBottom: 16,
   },
 });

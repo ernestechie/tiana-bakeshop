@@ -24,6 +24,6 @@ export const GlobalStyles = StyleSheet.create({
   onboardingContentBackground: {
     backgroundColor: Colors.white,
     padding: 20,
-    height: "60%",
+    flex: 1,
   },
 });
