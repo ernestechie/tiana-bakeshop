@@ -6,7 +6,7 @@ export default function SearchNav() {
   return (
     <View style={styles.container}>
       <View>
-        <Input placeholder="Search for products..." />
+        {/* <Input name="searchValue" placeholder="Search for products..." /> */}
       </View>
     </View>
   );

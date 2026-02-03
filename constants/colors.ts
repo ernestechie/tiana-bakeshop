@@ -9,4 +9,5 @@ export const Colors = {
   secondary: "#5D577E",
   tertiary: "#27214D",
   input: "#F3F1F1",
+  destructive: "#FE867F",
 };
