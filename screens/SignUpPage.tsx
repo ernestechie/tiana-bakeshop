@@ -40,23 +40,17 @@ export default function SignUpPage() {
             Enter your details
           </Text>
           <View style={styles.formContainer}>
-            <Input
-              label="First name"
-              fullWidth
-              placeholder="Enter first name"
-            />
-            <Input label="Last name" fullWidth placeholder="Enter last name" />
+            <Input label="First name" placeholder="Enter first name" />
+            <Input label="Last name" placeholder="Enter last name" />
             <Input
               label="Phone number"
-              fullWidth
-              keyboardType="email-address"
-              placeholder="Enter email"
-            />
-            <Input
-              label="Phone number"
-              fullWidth
               keyboardType="number-pad"
               placeholder="Enter phone number"
+            />
+            <Input
+              label="Email address"
+              keyboardType="email-address"
+              placeholder="Enter email"
             />
           </View>
           <AppButton onPress={handleGetStarted} fullWidth>

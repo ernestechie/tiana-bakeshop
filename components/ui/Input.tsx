@@ -19,7 +19,7 @@ export default function Input({
   label,
   multiline,
   style,
-  fullWidth,
+  fullWidth = true,
   ...rest
 }: InputProps) {
   return (
