@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   labelText: {
     fontSize: 12,
     color: Colors.tertiary,
-    marginBottom: 4,
+    marginBottom: 6,
     fontFamily: "open-sans-regular",
   },
   input: {
