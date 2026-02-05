@@ -7,11 +7,22 @@ import { ProductItem } from "../../types/products";
 import EmptyState from "../EmptyState";
 import ProductCard from "./ProductCard";
 
+import * as Notifications from "expo-notifications";
+
 interface ProductsListProps {
   title?: string;
   emptyStateResourceName?: string;
   products: ProductItem[];
 }
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+    shouldShowBanner: true,
+    shouldShowList: true,
+  }),
+});
 
 export default function ProductsList({
   title,
@@ -20,7 +31,7 @@ export default function ProductsList({
 }: ProductsListProps) {
   const { favourites, addFavourite, removeFavourite } = useFavoritesStore();
 
-  const handleToggleFavourites = (product: ProductItem) => {
+  const handleToggleFavourites = async (product: ProductItem) => {
     const isFavourite = favourites.some((fav) => fav.id === product.id);
 
     if (isFavourite) {
@@ -28,6 +39,28 @@ export default function ProductsList({
     } else {
       addFavourite(product);
     }
+
+    // TODO: Schedule a local notification
+    await scheduleNotification(product, isFavourite);
+  };
+
+  const scheduleNotification = async (
+    product: ProductItem,
+    isFavourite: boolean,
+  ) => {
+    Notifications.scheduleNotificationAsync({
+      content: {
+        title: "Tiana Bakeshop",
+        body: `${product.name} has been ${isFavourite ? "removed from" : "added to"} your favourites.`,
+        data: {
+          product,
+        },
+      },
+      trigger: {
+        type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
+        seconds: 5,
+      },
+    });
   };
 
   return (
